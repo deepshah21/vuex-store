@@ -1,3 +1,67 @@
+## global componenet creating and registration
+
+## slot api
+
+    1. default slot
+for example there is a global component <BaseButton></BaseButton>
+within BaseButton component 
+// BaseButton
+<tmeplate>
+    <div>
+        <button><slot></slot></button>
+    </div>
+</template>
+
+// FormComponent
+<template>
+    <BaseButton>Save</BaseButton>
+</template>
+
+than <slot></slot> will be replace with <slot>save</slot>
+
+    2.Named slots
+named slots is used when child componenet used with multiple slots
+
+
+## axios configuration is used for
+    Do GET, POST, PUT, and DELETE requests
+    Add authentication to each request
+    Set timeouts if requests take too long
+    Configure defaults for every request
+    Intercept requests to create middleware
+    Handle errors and cancel requests properly
+    Properly serialize and deserialize requests & responses
+
+when we directly use axios in component it will create new instance for each components.
+    so in src/service/serviceName.js
+    within that 
+
+    import axios from 'axios';
+    const apiClient = axios.create({
+        baseURl: 'http://localhost:3000/event',
+        withCredentials: false,
+        headers: {
+            Accept: 'application/json',
+            'Content-Type':'application/json'
+        }
+    })
+
+    export default{
+        getEvents(){
+            return apiClient.get('/events');
+        },
+        getEventId(id){
+            return apiClient.get('/events/'+id);
+        }
+    }
+
+componenet lifecycle for when we have to call axios api
+    we have to create axios call from created() lifecycle hook
+
+creating services check
+npm install -g json-server
+json-server --watch db.json
+
 Vuex is state management library.
 It serves centralizeddata store for all component in an application.
 
