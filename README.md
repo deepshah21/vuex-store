@@ -58,10 +58,13 @@ when we directly use axios in component it will create new instance for each com
 componenet lifecycle for when we have to call axios api
     we have to create axios call from created() lifecycle hook
 
+## json server 
+
 creating services check
 npm install -g json-server
 json-server --watch db.json
 
+## vuex
 Vuex is state management library.
 It serves centralizeddata store for all component in an application.
 
@@ -254,9 +257,6 @@ and when namespacing is true
   and with mapGetters
   computed: mapGetters(''event,['getEventById])
 
-
-
-# vuex-store
 
 ## Project setup
 ```
